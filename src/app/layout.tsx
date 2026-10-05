@@ -3,7 +3,10 @@ import './globals.css';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://digital-collection-ca788.web.app';
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: {
     default: 'CALA — Moda consciente y atemporal',
     template: '%s | CALA',
