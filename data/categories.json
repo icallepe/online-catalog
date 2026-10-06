@@ -1,7 +1,1 @@
-[
-  { "id": "jeans", "name": "Jeans", "slug": "jeans", "order": 1 },
-  { "id": "blusas-tops", "name": "Blusas y Tops", "slug": "blusas-tops", "order": 2 },
-  { "id": "vestidos", "name": "Vestidos", "slug": "vestidos", "order": 3 },
-  { "id": "abrigos", "name": "Abrigos", "slug": "abrigos", "order": 4 },
-  { "id": "accesorios", "name": "Accesorios", "slug": "accesorios", "order": 5 }
-]
+[{ "id": "pantalones", "name": "Pantalones", "slug": "pantalones", "order": 1 }]

@@ -17,8 +17,7 @@ export function CatalogView({ products, categories }: CatalogViewProps) {
   const filtered = useMemo(() => {
     return products.filter((p) => {
       const matchesCategory = activeCategory === '' || p.categoryId === activeCategory;
-      const matchesSearch =
-        search === '' || p.name.toLowerCase().includes(search.toLowerCase());
+      const matchesSearch = search === '' || p.name.toLowerCase().includes(search.toLowerCase());
       return matchesCategory && matchesSearch;
     });
   }, [products, search, activeCategory]);
@@ -39,34 +38,32 @@ export function CatalogView({ products, categories }: CatalogViewProps) {
         </div>
       </div>
 
-      {/* Filtro por categoría */}
-      <div className="flex flex-wrap gap-2 mb-10 pb-4 border-b border-border">
-        <button
-          onClick={() => setActiveCategory('')}
-          className={[
-            'text-xs uppercase tracking-widest px-3 py-1.5 transition-colors',
-            activeCategory === ''
-              ? 'bg-ink text-paper'
-              : 'text-muted hover:text-ink',
-          ].join(' ')}
-        >
-          Todo
-        </button>
-        {categories.map((cat) => (
+      {/* Filtro por categoría — solo visible cuando hay más de una */}
+      {categories.length > 1 && (
+        <div className="flex flex-wrap gap-2 mb-10 pb-4 border-b border-border">
           <button
-            key={cat.id}
-            onClick={() => setActiveCategory(cat.id)}
+            onClick={() => setActiveCategory('')}
             className={[
               'text-xs uppercase tracking-widest px-3 py-1.5 transition-colors',
-              activeCategory === cat.id
-                ? 'bg-ink text-paper'
-                : 'text-muted hover:text-ink',
+              activeCategory === '' ? 'bg-ink text-paper' : 'text-muted hover:text-ink',
             ].join(' ')}
           >
-            {cat.name}
+            Todo
           </button>
-        ))}
-      </div>
+          {categories.map((cat) => (
+            <button
+              key={cat.id}
+              onClick={() => setActiveCategory(cat.id)}
+              className={[
+                'text-xs uppercase tracking-widest px-3 py-1.5 transition-colors',
+                activeCategory === cat.id ? 'bg-ink text-paper' : 'text-muted hover:text-ink',
+              ].join(' ')}
+            >
+              {cat.name}
+            </button>
+          ))}
+        </div>
+      )}
 
       {/* Grid de productos */}
       {filtered.length === 0 ? (
