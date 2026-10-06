@@ -32,14 +32,13 @@ export function ProductCard({ product }: ProductCardProps) {
 
       {/* Información */}
       <div className="mt-3 space-y-1">
-        <p className="text-xs uppercase tracking-widest text-muted">
-          {product.sku ?? ''}
-        </p>
-        <h3 className="text-sm font-medium text-ink leading-tight group-hover:underline underline-offset-2">
+        <h3 className="font-sans text-sm font-medium text-soft-black leading-tight group-hover:text-terracotta transition-colors">
           {product.name}
         </h3>
         {product.price !== undefined && (
-          <p className="text-sm text-ink">{formatPrice(product.price)}</p>
+          <p className="font-sans text-sm text-terracotta font-medium">
+            {formatPrice(product.price)}
+          </p>
         )}
       </div>
     </Link>

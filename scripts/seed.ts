@@ -46,6 +46,14 @@ async function seedCollection<T extends { id: string }>(
   collectionName: string,
   items: T[]
 ): Promise<void> {
+  // Borra todos los documentos existentes antes de insertar
+  const existing = await db.collection(collectionName).listDocuments();
+  if (existing.length > 0) {
+    const deleteBatch = db.batch();
+    existing.forEach((ref) => deleteBatch.delete(ref));
+    await deleteBatch.commit();
+  }
+
   const batch = db.batch();
   for (const item of items) {
     const { id, ...data } = item;

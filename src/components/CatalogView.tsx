@@ -24,16 +24,15 @@ export function CatalogView({ products, categories }: CatalogViewProps) {
 
   return (
     <div>
-      {/* Barra de búsqueda y filtros */}
+      {/* Búsqueda */}
       <div className="flex flex-col sm:flex-row gap-4 mb-8">
-        {/* Búsqueda */}
         <div className="relative flex-1">
           <input
             type="search"
-            placeholder="Buscar productos..."
+            placeholder="Buscar pantalones..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full border border-border bg-paper px-4 py-2.5 text-sm text-ink placeholder:text-muted focus:outline-none focus:border-ink transition-colors"
+            className="w-full border border-border bg-paper px-4 py-3 font-sans text-sm text-soft-black placeholder:text-muted focus:outline-none focus:border-terracotta transition-colors"
           />
         </div>
       </div>
@@ -44,8 +43,10 @@ export function CatalogView({ products, categories }: CatalogViewProps) {
           <button
             onClick={() => setActiveCategory('')}
             className={[
-              'text-xs uppercase tracking-widest px-3 py-1.5 transition-colors',
-              activeCategory === '' ? 'bg-ink text-paper' : 'text-muted hover:text-ink',
+              'font-sans text-xs uppercase tracking-widest px-3 py-1.5 transition-colors',
+              activeCategory === ''
+                ? 'bg-terracotta text-ivory'
+                : 'text-muted hover:text-soft-black',
             ].join(' ')}
           >
             Todo
@@ -55,8 +56,10 @@ export function CatalogView({ products, categories }: CatalogViewProps) {
               key={cat.id}
               onClick={() => setActiveCategory(cat.id)}
               className={[
-                'text-xs uppercase tracking-widest px-3 py-1.5 transition-colors',
-                activeCategory === cat.id ? 'bg-ink text-paper' : 'text-muted hover:text-ink',
+                'font-sans text-xs uppercase tracking-widest px-3 py-1.5 transition-colors',
+                activeCategory === cat.id
+                  ? 'bg-terracotta text-ivory'
+                  : 'text-muted hover:text-soft-black',
               ].join(' ')}
             >
               {cat.name}
@@ -68,7 +71,7 @@ export function CatalogView({ products, categories }: CatalogViewProps) {
       {/* Grid de productos */}
       {filtered.length === 0 ? (
         <div className="py-24 text-center">
-          <p className="text-sm text-muted uppercase tracking-widest">
+          <p className="font-sans text-sm text-muted uppercase tracking-widest">
             No se encontraron productos
           </p>
         </div>

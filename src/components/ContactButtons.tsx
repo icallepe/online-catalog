@@ -33,7 +33,7 @@ export function ContactButtons({ product }: ContactButtonsProps) {
           href={buildWhatsAppUrl(product.contactWhatsapp!, product.name)}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center gap-2 bg-ink text-paper px-6 py-4 text-xs uppercase tracking-widest hover:bg-ink/90 transition-colors"
+          className="flex items-center justify-center gap-2 bg-terracotta text-ivory px-6 py-4 font-sans text-xs uppercase tracking-widest hover:bg-terracotta/90 transition-colors"
         >
           <WhatsAppIcon />
           Consultar por WhatsApp
@@ -42,7 +42,7 @@ export function ContactButtons({ product }: ContactButtonsProps) {
       {hasEmail && (
         <a
           href={buildMailtoUrl(product.contactEmail!, product.name)}
-          className="flex items-center justify-center gap-2 border border-ink text-ink px-6 py-4 text-xs uppercase tracking-widest hover:bg-ink hover:text-paper transition-colors"
+          className="flex items-center justify-center gap-2 border border-soft-black text-soft-black px-6 py-4 font-sans text-xs uppercase tracking-widest hover:bg-soft-black hover:text-ivory transition-colors"
         >
           <EmailIcon />
           Consultar por Email
@@ -63,7 +63,14 @@ function WhatsAppIcon() {
 
 function EmailIcon() {
   return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+    >
       <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
     </svg>
   );

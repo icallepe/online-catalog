@@ -17,16 +17,27 @@
   }
 
   body {
-    @apply bg-paper text-ink;
+    @apply bg-paper text-ink font-sans;
   }
 
   ::selection {
-    @apply bg-ink text-paper;
+    background-color: #b56f58;
+    color: #f3efe5;
   }
 
-  /* Estilo limpio para inputs de búsqueda */
+  h1,
+  h2,
+  h3 {
+    @apply font-heading;
+  }
+
   input[type='search']::-webkit-search-decoration,
   input[type='search']::-webkit-search-cancel-button {
     -webkit-appearance: none;
+  }
+
+  input:focus {
+    outline: none;
+    border-color: #b56f58;
   }
 }
