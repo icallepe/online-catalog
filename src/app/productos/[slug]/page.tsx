@@ -2,8 +2,9 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { getActiveProducts, getProductBySlug } from '@/features/products/api';
 import { getCategories } from '@/features/categories/api';
-import { ImageGallery } from '@/components/ImageGallery';
+import { ImageStack } from '@/components/ImageStack';
 import { ContactButtons } from '@/components/ContactButtons';
+import { ProductAccordion } from '@/components/ProductAccordion';
 import Link from 'next/link';
 
 interface PageProps {
@@ -45,10 +46,22 @@ export default async function ProductPage({ params }: PageProps) {
 
   const category = categories.find((c) => c.id === product.categoryId);
 
+  const accordionItems = [
+    {
+      title: 'Descripción',
+      content: product.description,
+    },
+    {
+      title: 'Consultas y disponibilidad',
+      content:
+        'Para conocer la disponibilidad, tallas y métodos de pago, contáctanos directamente por WhatsApp o correo electrónico. Respondemos en menos de 24 horas.',
+    },
+  ];
+
   return (
-    <div className="max-w-screen-xl mx-auto px-4 py-8 md:py-12">
+    <div className="max-w-screen-xl mx-auto">
       {/* Breadcrumb */}
-      <nav className="mb-8 flex items-center gap-2 font-sans text-xs text-muted uppercase tracking-widest">
+      <nav className="px-4 py-4 font-sans text-xs text-muted uppercase tracking-widest flex items-center gap-2">
         <Link href="/" className="hover:text-terracotta transition-colors">
           Catálogo
         </Link>
@@ -60,53 +73,44 @@ export default async function ProductPage({ params }: PageProps) {
         )}
       </nav>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16">
-        {/* Galería */}
-        <div>
-          <ImageGallery images={product.images} productName={product.name} />
+      {/* Layout principal: imágenes | panel sticky */}
+      <div className="flex flex-col md:flex-row">
+        {/* Columna de imágenes — apiladas verticalmente como Zara */}
+        <div className="w-full md:w-[62%]">
+          <ImageStack images={product.images} productName={product.name} />
         </div>
 
-        {/* Info del producto */}
-        <div className="flex flex-col gap-6 md:sticky md:top-20 md:self-start">
-          {/* SKU */}
-          {product.sku && (
-            <span className="font-sans text-xs text-muted tracking-widest uppercase">
-              {product.sku}
-            </span>
-          )}
+        {/* Panel sticky con info */}
+        <div className="w-full md:w-[38%] px-4 md:px-8 py-6 md:py-0">
+          <div className="md:sticky md:top-16 flex flex-col gap-5 py-4 md:py-8">
+            {/* SKU */}
+            {product.sku && (
+              <p className="font-sans text-xs text-muted tracking-widest uppercase">
+                {product.sku}
+              </p>
+            )}
 
-          {/* Nombre */}
-          <h1 className="font-heading text-3xl sm:text-4xl text-soft-black leading-tight">
-            {product.name}
-          </h1>
+            {/* Nombre */}
+            <h1 className="font-heading text-2xl sm:text-3xl text-soft-black leading-snug uppercase tracking-wide">
+              {product.name}
+            </h1>
 
-          {/* Precio */}
-          {product.price !== undefined && (
-            <p className="font-sans text-2xl font-medium text-terracotta">
-              {formatPrice(product.price)}
-            </p>
-          )}
+            {/* Precio */}
+            {product.price !== undefined && (
+              <p className="font-sans text-xl font-medium text-soft-black">
+                {formatPrice(product.price)}
+              </p>
+            )}
 
-          <hr className="border-border" />
+            {/* CTA principal */}
+            <ContactButtons product={product} />
 
-          {/* Descripción */}
-          <div>
-            <h2 className="font-sans text-xs uppercase tracking-widest text-muted mb-3">
-              Descripción
-            </h2>
-            <p className="font-sans text-sm leading-relaxed text-soft-black/80">
-              {product.description}
-            </p>
+            {/* Separador */}
+            <hr className="border-border" />
+
+            {/* Acordeones */}
+            <ProductAccordion items={accordionItems} />
           </div>
-
-          <hr className="border-border" />
-
-          {/* Botones de contacto */}
-          <ContactButtons product={product} />
-
-          <p className="font-sans text-xs text-muted leading-relaxed">
-            Para consultar disponibilidad, tallas y métodos de pago, contáctanos directamente.
-          </p>
         </div>
       </div>
     </div>
