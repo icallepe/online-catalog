@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { getActiveProducts, getProductBySlug } from '@/features/products/api';
 import { getCategories } from '@/features/categories/api';
 import { ImageStack } from '@/components/ImageStack';
+import { ImageCarousel } from '@/components/ImageCarousel';
 import { ContactButtons } from '@/components/ContactButtons';
 import { ProductAccordion } from '@/components/ProductAccordion';
 import Link from 'next/link';
@@ -75,9 +76,14 @@ export default async function ProductPage({ params }: PageProps) {
 
       {/* Layout principal: imágenes | panel sticky */}
       <div className="flex flex-col md:flex-row">
-        {/* Columna de imágenes — apiladas verticalmente como Zara */}
+        {/* Mobile: carrusel swipeable. Desktop: stack vertical */}
         <div className="w-full md:w-[62%]">
-          <ImageStack images={product.images} productName={product.name} />
+          <div className="md:hidden">
+            <ImageCarousel images={product.images} productName={product.name} />
+          </div>
+          <div className="hidden md:block">
+            <ImageStack images={product.images} productName={product.name} />
+          </div>
         </div>
 
         {/* Panel sticky con info */}

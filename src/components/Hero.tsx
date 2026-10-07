@@ -44,7 +44,7 @@ export function Hero({
       >
         <p className="font-sans text-xs uppercase tracking-[0.4em] text-sand mb-4">{subtitle}</p>
         <h2
-          className="font-heading text-6xl sm:text-8xl text-ivory leading-none mb-8"
+          className="font-heading text-5xl sm:text-7xl md:text-8xl text-ivory leading-none mb-8 px-4"
           style={{ textShadow: '0 2px 40px rgba(0,0,0,0.2)' }}
         >
           {collectionName}
