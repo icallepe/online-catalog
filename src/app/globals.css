@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Canela Regular — fuente comercial de Commercial Type
+   Coloca los archivos en /public/fonts/ y esta declaración los cargará. */
+@font-face {
+  font-family: 'Canela';
+  src:
+    url('/fonts/canela-regular.woff2') format('woff2'),
+    url('/fonts/canela-regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 @layer base {
   :root {
     color-scheme: light;

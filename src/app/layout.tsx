@@ -1,21 +1,18 @@
 import type { Metadata } from 'next';
-import { Inter, Playfair_Display } from 'next/font/google';
+import { Manrope } from 'next/font/google';
 import './globals.css';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 
-const inter = Inter({
+const manrope = Manrope({
   subsets: ['latin'],
-  variable: '--font-inter',
+  variable: '--font-manrope',
+  weight: ['400', '500'],
   display: 'swap',
 });
 
-// Placeholder para Recoleta — swap: reemplazar con @font-face local cuando tengas los archivos .woff2
-const playfair = Playfair_Display({
-  subsets: ['latin'],
-  variable: '--font-heading',
-  display: 'swap',
-});
+// Canela Regular (fuente comercial) — coloca canela-regular.woff2 en /public/fonts/
+// El @font-face en globals.css la carga automáticamente cuando el archivo exista.
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://digital-collection-ca788.web.app';
 
@@ -40,7 +37,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="es" className={`${inter.variable} ${playfair.variable}`}>
+    <html lang="es" className={manrope.variable}>
       <body>
         <Header />
         <main>{children}</main>

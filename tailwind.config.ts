@@ -23,11 +23,10 @@ const config: Config = {
         surface: '#EDE7D8', // fondos de tarjeta → entre ivory y ecru
       },
       fontFamily: {
-        // Inter: cuerpo de texto (coincide con spec)
-        sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
-        // Playfair Display: placeholder de Recoleta para titulares
-        // Swap: cambiar var(--font-heading) por los archivos de Recoleta
-        heading: ['var(--font-heading)', 'Georgia', 'serif'],
+        // Manrope Regular/Medium: textos y comunicación
+        sans: ['var(--font-manrope)', 'system-ui', 'sans-serif'],
+        // Canela Regular: logotipo y titulares (comercial, carga via @font-face en globals.css)
+        heading: ['Canela', 'Georgia', 'serif'],
       },
       aspectRatio: {
         product: '3 / 4',
