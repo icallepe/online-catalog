@@ -5,7 +5,7 @@ export function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-start gap-8">
           <div>
             <p className="font-heading text-2xl tracking-[0.25em] uppercase text-soft-black">
-              CALA
+              PIERA
             </p>
             <p className="mt-2 font-sans text-xs text-muted tracking-wide">
               Pantalones de diseño atemporal
@@ -13,7 +13,7 @@ export function Footer() {
           </div>
           <div className="font-sans text-xs text-muted space-y-1 text-right">
             <p>¿Preguntas? Contáctanos directamente en cada producto.</p>
-            <p>© {new Date().getFullYear()} Cala. Todos los derechos reservados.</p>
+            <p>© {new Date().getFullYear()} Piera. Todos los derechos reservados.</p>
           </div>
         </div>
       </div>

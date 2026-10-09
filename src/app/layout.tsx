@@ -22,14 +22,14 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://digital-collection-
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'CALA — Pantalones',
-    template: '%s | CALA',
+    default: 'PIERA — Pantalones',
+    template: '%s | PIERA',
   },
   description:
-    'Catálogo CALA: pantalones de calidad, diseño limpio y atemporal. Consulta disponibilidad directamente con nosotros.',
+    'Catálogo PIERA: pantalones de calidad, diseño limpio y atemporal. Consulta disponibilidad directamente con nosotros.',
   openGraph: {
     type: 'website',
-    siteName: 'CALA',
+    siteName: 'PIERA',
     locale: 'es_CO',
   },
   robots: {

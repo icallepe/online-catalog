@@ -8,7 +8,7 @@ export function Header() {
           href="/"
           className="font-heading text-2xl tracking-[0.25em] uppercase text-soft-black hover:text-terracotta transition-colors"
         >
-          CALA
+          PIERA
         </Link>
 
         <nav className="hidden md:flex items-center gap-8">
