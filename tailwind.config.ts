@@ -25,8 +25,8 @@ const config: Config = {
       fontFamily: {
         // Manrope Regular/Medium: textos y comunicación
         sans: ['var(--font-manrope)', 'system-ui', 'sans-serif'],
-        // Canela Regular: logotipo y titulares (comercial, carga via @font-face en globals.css)
-        heading: ['Canela', 'Georgia', 'serif'],
+        // Canela Regular: logotipo y titulares — stand-in: Cormorant via --font-heading
+        heading: ['var(--font-heading)', 'Georgia', 'serif'],
       },
       aspectRatio: {
         product: '3 / 4',
