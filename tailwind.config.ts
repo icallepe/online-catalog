@@ -17,7 +17,7 @@ const config: Config = {
 
         // Aliases semánticos usados en los componentes
         ink: '#252624', // texto principal → soft black
-        paper: '#F3EFE5', // fondo → ivory
+        paper: '#FFFFFF', // fondo → white
         muted: '#9A8C7A', // texto secundario (derivado de sand)
         border: '#E5D9C5', // bordes → ecru
         surface: '#EDE7D8', // fondos de tarjeta → entre ivory y ecru
