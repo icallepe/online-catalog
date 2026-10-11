@@ -29,7 +29,8 @@
   }
 
   body {
-    @apply bg-paper text-ink font-sans;
+    @apply text-ink font-sans;
+    background-color: #ffffff;
   }
 
   ::selection {
