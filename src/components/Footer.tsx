@@ -7,9 +7,6 @@ export function Footer() {
             <p className="font-heading text-2xl tracking-[0.25em] uppercase text-soft-black">
               PIERA
             </p>
-            <p className="mt-2 font-sans text-xs text-muted tracking-wide">
-              Pantalones de diseño atemporal
-            </p>
           </div>
           <div className="font-sans text-xs text-muted space-y-1 text-right">
             <p>¿Preguntas? Contáctanos directamente en cada producto.</p>
