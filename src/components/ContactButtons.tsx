@@ -4,23 +4,39 @@ interface ContactButtonsProps {
   product: Product;
 }
 
-function buildWhatsAppUrl(phone: string, productName: string): string {
-  const text = encodeURIComponent(
-    `Hola, me interesa el producto: *${productName}*. ¿Está disponible?`
-  );
-  const cleaned = phone.replace(/\D/g, '');
-  return `https://wa.me/${cleaned}?text=${text}`;
+function buildWhatsAppUrl(product: Product): string {
+  const price = product.price
+    ? new Intl.NumberFormat('es-CO', {
+        style: 'currency',
+        currency: 'COP',
+        maximumFractionDigits: 0,
+      }).format(product.price)
+    : '';
+
+  const lines = [
+    `Hola! Me interesa este producto de PIERA:`,
+    ``,
+    `*${product.name}*`,
+    product.sku ? `SKU: ${product.sku}` : '',
+    price ? `Precio: ${price}` : '',
+    product.tallas ? `Talla: ${product.tallas}` : '',
+    product.composicion ? `Composición: ${product.composicion}` : '',
+    ``,
+    `¿Está disponible?`,
+  ].filter((l) => l !== undefined);
+
+  const text = encodeURIComponent(lines.join('\n'));
+  const phone = (product.contactWhatsapp ?? '').replace(/\D/g, '');
+  return `https://wa.me/${phone}?text=${text}`;
 }
 
 export function ContactButtons({ product }: ContactButtonsProps) {
-  const hasWhatsapp = Boolean(product.contactWhatsapp);
-
-  if (!hasWhatsapp) return null;
+  if (!product.contactWhatsapp) return null;
 
   return (
     <div className="flex flex-col gap-3">
       <a
-        href={buildWhatsAppUrl(product.contactWhatsapp!, product.name)}
+        href={buildWhatsAppUrl(product)}
         target="_blank"
         rel="noopener noreferrer"
         className="flex items-center justify-center gap-2 bg-terracotta text-ivory px-6 py-4 font-sans text-xs uppercase tracking-widest hover:bg-terracotta/90 transition-colors"
