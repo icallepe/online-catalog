@@ -32,11 +32,11 @@ export function ProductCard({ product }: ProductCardProps) {
 
       {/* Información */}
       <div className="mt-3 space-y-1">
-        <h3 className="font-sans text-sm font-medium text-soft-black leading-tight group-hover:text-terracotta transition-colors">
+        <h3 className="font-sans text-sm font-medium text-soft-black leading-tight group-hover:text-muted transition-colors">
           {product.name}
         </h3>
         {product.price !== undefined && (
-          <p className="font-sans text-sm text-terracotta font-medium">
+          <p className="font-sans text-sm text-soft-black font-medium">
             {formatPrice(product.price)}
           </p>
         )}
