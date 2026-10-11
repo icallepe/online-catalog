@@ -15,7 +15,7 @@ export function Hero() {
   };
 
   return (
-    <section className="relative w-full h-[92vh] min-h-[540px] flex flex-col items-center justify-end pb-16 overflow-hidden bg-deep-blue">
+    <section className="relative w-full h-screen min-h-[540px] flex flex-col items-center justify-end pb-16 overflow-hidden bg-deep-blue">
       {/* Fondo — reemplazar con <Image> cuando haya foto de campaña */}
       <div className="absolute inset-0 bg-gradient-to-b from-deep-blue/60 via-deep-blue/30 to-deep-blue/80" />
 
