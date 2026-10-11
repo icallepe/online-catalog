@@ -9,7 +9,7 @@ export default async function HomePage() {
   return (
     <>
       {/* Hero pantalla completa */}
-      <Hero collectionName="Pantalones" subtitle="Colección 2025" />
+      <Hero />
 
       {/* Catálogo */}
       <section id="productos" className="max-w-screen-xl mx-auto px-4 py-16">

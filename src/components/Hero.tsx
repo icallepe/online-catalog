@@ -2,15 +2,7 @@
 
 import { useEffect, useState } from 'react';
 
-interface HeroProps {
-  collectionName?: string;
-  subtitle?: string;
-}
-
-export function Hero({
-  collectionName = 'Nueva Colección',
-  subtitle = 'Pantalones de diseño atemporal',
-}: HeroProps) {
+export function Hero() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -42,13 +34,6 @@ export function Hero({
           visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
         }`}
       >
-        <p className="font-sans text-xs uppercase tracking-[0.4em] text-sand mb-4">{subtitle}</p>
-        <h2
-          className="font-heading text-5xl sm:text-7xl md:text-8xl text-ivory leading-none mb-8 px-4"
-          style={{ textShadow: '0 2px 40px rgba(0,0,0,0.2)' }}
-        >
-          {collectionName}
-        </h2>
         <button
           onClick={scrollToProducts}
           className="font-sans text-xs uppercase tracking-[0.3em] text-ivory border border-ivory/50 px-8 py-3 hover:bg-ivory hover:text-deep-blue transition-all duration-300"
