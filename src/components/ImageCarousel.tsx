@@ -45,7 +45,7 @@ export function ImageCarousel({ images, productName }: ImageCarouselProps) {
           <div
             key={i}
             data-index={i}
-            className="relative flex-shrink-0 w-full aspect-[3/4] bg-[#EEEBE6] snap-center"
+            className="relative flex-shrink-0 w-full aspect-[3/4] bg-white snap-center"
           >
             <Image
               src={src}

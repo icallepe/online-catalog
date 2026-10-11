@@ -11,7 +11,7 @@ export function ImageStack({ images, productName }: ImageStackProps) {
   return (
     <div className="flex flex-col gap-1">
       {srcs.map((src, i) => (
-        <div key={i} className="relative w-full aspect-[3/4] bg-[#EEEBE6] overflow-hidden">
+        <div key={i} className="relative w-full aspect-[3/4] bg-white overflow-hidden">
           <Image
             src={src}
             alt={i === 0 ? productName : `${productName} — vista ${i + 1}`}

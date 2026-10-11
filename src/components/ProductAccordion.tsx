@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 interface AccordionItem {
   title: string;
-  content: string;
+  content: string | string[];
 }
 
 interface ProductAccordionProps {
@@ -28,9 +28,17 @@ export function ProductAccordion({ items }: ProductAccordionProps) {
             </span>
           </button>
           {open === i && (
-            <p className="pb-4 font-sans text-sm text-soft-black/75 leading-relaxed">
-              {item.content}
-            </p>
+            <div className="pb-4 font-sans text-sm text-soft-black/75 leading-relaxed">
+              {Array.isArray(item.content) ? (
+                <ul className="list-disc list-inside flex flex-col gap-1">
+                  {item.content.map((line, j) => (
+                    <li key={j}>{line}</li>
+                  ))}
+                </ul>
+              ) : (
+                <p>{item.content}</p>
+              )}
+            </div>
           )}
         </div>
       ))}

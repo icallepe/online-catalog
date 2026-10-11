@@ -52,23 +52,14 @@ export default async function ProductPage({ params }: PageProps) {
       title: 'Descripción',
       content: product.description,
     },
-    ...(product.composicion || (product.cuidado && product.cuidado.length > 0)
-      ? [
-          {
-            title: 'Composición y cuidado',
-            content: [
-              product.composicion ? `Composición: ${product.composicion}` : '',
-              ...(product.cuidado ?? []),
-            ]
-              .filter(Boolean)
-              .join('\n'),
-          },
-        ]
+    ...(product.composicion ? [{ title: 'Composición', content: product.composicion }] : []),
+    ...(product.cuidado && product.cuidado.length > 0
+      ? [{ title: 'Cuidado', content: product.cuidado }]
       : []),
     {
       title: 'Consultas y disponibilidad',
       content:
-        'Para conocer disponibilidad y métodos de pago, contáctanos directamente por WhatsApp o correo. Respondemos en menos de 24 horas.',
+        'Para conocer disponibilidad y métodos de pago, contáctanos directamente por WhatsApp. Respondemos en menos de 24 horas.',
     },
   ];
 

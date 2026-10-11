@@ -15,7 +15,7 @@ export function ImageGallery({ images, productName }: ImageGalleryProps) {
   return (
     <div className="flex flex-col gap-3">
       {/* Imagen principal */}
-      <div className="relative aspect-[3/4] bg-surface overflow-hidden">
+      <div className="relative aspect-[3/4] bg-white overflow-hidden">
         <Image
           src={current}
           alt={`${productName} — imagen ${selected + 1}`}
