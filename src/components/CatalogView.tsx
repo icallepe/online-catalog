@@ -29,7 +29,7 @@ export function CatalogView({ products, categories }: CatalogViewProps) {
             className={[
               'font-sans text-xs uppercase tracking-widest px-3 py-1.5 transition-colors',
               activeCategory === ''
-                ? 'bg-terracotta text-ivory'
+                ? 'bg-soft-black text-white'
                 : 'text-muted hover:text-soft-black',
             ].join(' ')}
           >
@@ -42,7 +42,7 @@ export function CatalogView({ products, categories }: CatalogViewProps) {
               className={[
                 'font-sans text-xs uppercase tracking-widest px-3 py-1.5 transition-colors',
                 activeCategory === cat.id
-                  ? 'bg-terracotta text-ivory'
+                  ? 'bg-soft-black text-white'
                   : 'text-muted hover:text-soft-black',
               ].join(' ')}
             >

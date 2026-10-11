@@ -39,7 +39,7 @@ export function ContactButtons({ product }: ContactButtonsProps) {
         href={buildWhatsAppUrl(product)}
         target="_blank"
         rel="noopener noreferrer"
-        className="flex items-center justify-center gap-2 bg-terracotta text-ivory px-6 py-4 font-sans text-xs uppercase tracking-widest hover:bg-terracotta/90 transition-colors"
+        className="flex items-center justify-center gap-2 bg-soft-black text-white px-6 py-4 font-sans text-xs uppercase tracking-widest hover:bg-soft-black/80 transition-colors"
       >
         <WhatsAppIcon />
         Consultar por WhatsApp
