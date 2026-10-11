@@ -52,10 +52,23 @@ export default async function ProductPage({ params }: PageProps) {
       title: 'Descripción',
       content: product.description,
     },
+    ...(product.composicion || (product.cuidado && product.cuidado.length > 0)
+      ? [
+          {
+            title: 'Composición y cuidado',
+            content: [
+              product.composicion ? `Composición: ${product.composicion}` : '',
+              ...(product.cuidado ?? []),
+            ]
+              .filter(Boolean)
+              .join('\n'),
+          },
+        ]
+      : []),
     {
       title: 'Consultas y disponibilidad',
       content:
-        'Para conocer la disponibilidad, tallas y métodos de pago, contáctanos directamente por WhatsApp o correo electrónico. Respondemos en menos de 24 horas.',
+        'Para conocer disponibilidad y métodos de pago, contáctanos directamente por WhatsApp o correo. Respondemos en menos de 24 horas.',
     },
   ];
 
@@ -89,6 +102,13 @@ export default async function ProductPage({ params }: PageProps) {
         {/* Panel sticky con info */}
         <div className="w-full md:w-[38%] px-4 md:px-8 py-6 md:py-0">
           <div className="md:sticky md:top-16 flex flex-col gap-5 py-4 md:py-8">
+            {/* Badge */}
+            {product.badge && (
+              <span className="font-sans text-xs uppercase tracking-widest text-terracotta">
+                {product.badge}
+              </span>
+            )}
+
             {/* SKU */}
             {product.sku && (
               <p className="font-sans text-xs text-muted tracking-widest uppercase">
@@ -106,6 +126,14 @@ export default async function ProductPage({ params }: PageProps) {
               <p className="font-sans text-xl font-medium text-soft-black">
                 {formatPrice(product.price)}
               </p>
+            )}
+
+            {/* Tallas */}
+            {product.tallas && (
+              <div className="flex flex-col gap-1">
+                <p className="font-sans text-xs text-muted uppercase tracking-widest">Talla</p>
+                <p className="font-sans text-sm text-soft-black font-medium">{product.tallas}</p>
+              </div>
             )}
 
             {/* CTA principal */}

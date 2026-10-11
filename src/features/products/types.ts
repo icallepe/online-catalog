@@ -9,9 +9,11 @@ export interface Product {
   contactWhatsapp?: string;
   contactEmail?: string;
   status: 'active' | 'draft';
-  // Reservados — no usados aún
-  stock?: number;
   sku?: string;
+  badge?: string;
+  tallas?: string;
+  composicion?: string;
+  cuidado?: string[];
   createdAt?: string;
   updatedAt?: string;
 }
