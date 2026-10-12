@@ -61,6 +61,33 @@
     "updatedAt": "2026-10-11T00:00:00Z"
   },
   {
+    "id": "pantalon-balloon-con-lazos",
+    "name": "Pantalón Balloon con Lazos",
+    "slug": "pantalon-balloon-con-lazos",
+    "description": "Este pantalón presenta una silueta amplia y relajada que se recoge en los tobillos. Su cintura elástica aporta un ajuste flexible, mientras que los lazos en las botas permiten amarrarlas y regular su apariencia. Las cuentas de madera añaden un detalle distintivo. Combínalo con tops básicos, camisetas o camisas ligeras.",
+    "categoryId": "pantalones",
+    "price": 70000,
+    "sku": "PAN-BAL-COL-001",
+    "badge": "",
+    "tallas": "S-M",
+    "composicion": "Poliéster y elastano",
+    "cuidado": [
+      "Lavar con agua fría.",
+      "Lavar con prendas de colores similares y preferiblemente al revés.",
+      "No usar blanqueador.",
+      "Evitar la secadora; secar a la sombra.",
+      "Planchar a temperatura baja si es necesario, evitando presionar demasiado la textura.",
+      "No dejar en remojo."
+    ],
+    "thumbnail": "/images/productos/Dusty Mauve Ruched Waistband with Wooden Beads.webp",
+    "images": ["/images/productos/pantalon_malva_frente (2).webp"],
+    "contactWhatsapp": "+573026499648",
+    "contactEmail": "hola@piera.com",
+    "status": "active",
+    "createdAt": "2026-10-12T00:00:00Z",
+    "updatedAt": "2026-10-12T00:00:00Z"
+  },
+  {
     "id": "pantalon-wide-leg-texturizado",
     "name": "Pantalón Wide Leg Texturizado",
     "slug": "pantalon-wide-leg-texturizado",
