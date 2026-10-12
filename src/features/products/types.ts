@@ -6,6 +6,7 @@ export interface Product {
   categoryId: string;
   price?: number;
   images: string[];
+  thumbnail?: string;
   contactWhatsapp?: string;
   contactEmail?: string;
   status: 'active' | 'draft';

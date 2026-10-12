@@ -15,7 +15,7 @@ function formatPrice(price: number) {
 }
 
 export function ProductCard({ product }: ProductCardProps) {
-  const thumbnail = product.images[0] ?? '/images/placeholder.svg';
+  const thumbnail = product.thumbnail ?? product.images[0] ?? '/images/placeholder.svg';
 
   return (
     <Link href={`/productos/${product.slug}/`} className="group block">
