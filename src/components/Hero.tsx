@@ -36,6 +36,7 @@ export function Hero() {
       >
         <button
           onClick={scrollToProducts}
+          aria-label="Ver colección — desplazarse a los productos"
           className="font-sans text-xs uppercase tracking-[0.3em] text-ivory border border-ivory/50 px-8 py-3 hover:bg-ivory hover:text-deep-blue transition-all duration-300"
         >
           Ver colección

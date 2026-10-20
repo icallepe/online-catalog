@@ -26,6 +26,7 @@
   html {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
   }
 
   body {
@@ -49,8 +50,100 @@
     -webkit-appearance: none;
   }
 
-  input:focus {
-    outline: none;
+  /* Use :focus-visible so keyboard users keep the ring, mouse clicks don't */
+  input:focus-visible {
+    outline: 2px solid #b56f58;
+    outline-offset: 2px;
     border-color: #b56f58;
   }
+
+  /* Visible focus ring for all interactive elements (keyboard navigation) */
+  :focus-visible {
+    outline: 2px solid #b56f58;
+    outline-offset: 2px;
+  }
+}
+
+/* Skip-to-content link (visually hidden until focused) */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  z-index: 9999;
+  background: #ffffff;
+  color: #252624;
+  padding: 0.5rem 1rem;
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border: 1px solid #e5d9c5;
+  transition: top 0.1s;
+}
+
+.skip-link:focus {
+  top: 1rem;
+  outline: 2px solid #b56f58;
+  outline-offset: 2px;
+}
+
+/* Legal page prose styles */
+.legal-prose {
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.75;
+  color: rgba(37, 38, 36, 0.8);
+}
+
+.legal-prose section {
+  margin-bottom: 2.5rem;
+}
+
+.legal-prose h2 {
+  font-family: var(--font-heading), serif;
+  font-size: 1.125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #252624;
+  margin-bottom: 0.75rem;
+}
+
+.legal-prose p {
+  margin-bottom: 0.875rem;
+}
+
+.legal-prose ul,
+.legal-prose ol {
+  padding-left: 1.5rem;
+  margin-bottom: 0.875rem;
+}
+
+.legal-prose ul {
+  list-style-type: disc;
+}
+
+.legal-prose ol {
+  list-style-type: decimal;
+}
+
+.legal-prose li {
+  margin-bottom: 0.375rem;
+}
+
+.legal-prose a {
+  color: #b56f58;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.legal-prose a:hover {
+  color: #252624;
+}
+
+.legal-prose code {
+  font-family: ui-monospace, monospace;
+  font-size: 0.8125rem;
+  background-color: #f3efe5;
+  padding: 0.125rem 0.375rem;
+  border-radius: 2px;
 }

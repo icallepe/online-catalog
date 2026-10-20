@@ -3,6 +3,7 @@ import { Manrope, Cormorant } from 'next/font/google';
 import './globals.css';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
+import { CookieBanner } from '@/components/CookieBanner';
 
 const manrope = Manrope({
   subsets: ['latin'],
@@ -44,9 +45,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="es" className={`${manrope.variable} ${cormorant.variable}`}>
       <body>
+        <a href="#main-content" className="skip-link">
+          Ir al contenido principal
+        </a>
         <Header />
-        <main>{children}</main>
+        <main id="main-content" tabIndex={-1}>
+          {children}
+        </main>
         <Footer />
+        <CookieBanner />
       </body>
     </html>
   );

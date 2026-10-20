@@ -66,7 +66,10 @@ export default async function ProductPage({ params }: PageProps) {
   return (
     <div className="max-w-screen-xl mx-auto">
       {/* Breadcrumb */}
-      <nav className="px-4 py-4 font-sans text-xs text-muted uppercase tracking-widest flex items-center gap-2">
+      <nav
+        aria-label="Ruta de navegación"
+        className="px-4 py-4 font-sans text-xs text-muted uppercase tracking-widest flex items-center gap-2"
+      >
         <Link href="/" className="hover:text-terracotta transition-colors">
           Catálogo
         </Link>

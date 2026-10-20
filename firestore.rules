@@ -2,9 +2,24 @@ rules_version = '2';
 
 service cloud.firestore {
   match /databases/{database}/documents {
-    // Catálogo público: solo lectura
-    match /{document=**} {
+
+    // Colección de productos: solo lectura pública
+    match /products/{productId} {
       allow read: if true;
+      allow write: if false;
+    }
+
+    // Colección de categorías: solo lectura pública
+    match /categories/{categoryId} {
+      allow read: if true;
+      allow write: if false;
+    }
+
+    // Cualquier otra colección o documento: acceso completamente denegado.
+    // Esto protege colecciones futuras (pedidos, usuarios, etc.)
+    // que se agreguen sin reglas explícitas.
+    match /{document=**} {
+      allow read: if false;
       allow write: if false;
     }
   }

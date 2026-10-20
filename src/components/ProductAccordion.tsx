@@ -16,19 +16,30 @@ export function ProductAccordion({ items }: ProductAccordionProps) {
 
   return (
     <div className="divide-y divide-border">
-      {items.map((item, i) => (
-        <div key={i}>
-          <button
-            onClick={() => setOpen(open === i ? null : i)}
-            className="w-full flex items-center justify-between py-4 font-sans text-xs uppercase tracking-widest text-soft-black hover:text-terracotta transition-colors text-left"
-          >
-            {item.title}
-            <span className="text-base leading-none ml-4 flex-shrink-0">
-              {open === i ? '−' : '+'}
-            </span>
-          </button>
-          {open === i && (
-            <div className="pb-4 font-sans text-sm text-soft-black/75 leading-relaxed">
+      {items.map((item, i) => {
+        const panelId = `accordion-panel-${i}`;
+        const isOpen = open === i;
+
+        return (
+          <div key={i}>
+            <button
+              onClick={() => setOpen(isOpen ? null : i)}
+              aria-expanded={isOpen}
+              aria-controls={panelId}
+              className="w-full flex items-center justify-between py-4 font-sans text-xs uppercase tracking-widest text-soft-black hover:text-terracotta transition-colors text-left"
+            >
+              {item.title}
+              <span className="text-base leading-none ml-4 flex-shrink-0" aria-hidden="true">
+                {isOpen ? '−' : '+'}
+              </span>
+            </button>
+            <div
+              id={panelId}
+              role="region"
+              aria-label={item.title}
+              hidden={!isOpen}
+              className="pb-4 font-sans text-sm text-soft-black/75 leading-relaxed"
+            >
               {Array.isArray(item.content) ? (
                 <ul className="list-disc list-inside flex flex-col gap-1">
                   {item.content.map((line, j) => (
@@ -39,9 +50,9 @@ export function ProductAccordion({ items }: ProductAccordionProps) {
                 <p>{item.content}</p>
               )}
             </div>
-          )}
-        </div>
-      ))}
+          </div>
+        );
+      })}
     </div>
   );
 }

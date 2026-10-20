@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export function Footer() {
   return (
     <footer className="border-t border-border mt-24 bg-white">
@@ -13,6 +15,36 @@ export function Footer() {
             <p>© {new Date().getFullYear()} Piera. Todos los derechos reservados.</p>
           </div>
         </div>
+
+        <nav
+          aria-label="Páginas legales"
+          className="mt-8 pt-6 border-t border-border flex flex-wrap gap-x-6 gap-y-2"
+        >
+          <Link
+            href="/privacidad/"
+            className="font-sans text-xs text-muted hover:text-soft-black transition-colors uppercase tracking-widest"
+          >
+            Política de Privacidad
+          </Link>
+          <Link
+            href="/terminos/"
+            className="font-sans text-xs text-muted hover:text-soft-black transition-colors uppercase tracking-widest"
+          >
+            Términos y Condiciones
+          </Link>
+          <Link
+            href="/politica-cookies/"
+            className="font-sans text-xs text-muted hover:text-soft-black transition-colors uppercase tracking-widest"
+          >
+            Política de Cookies
+          </Link>
+          <Link
+            href="/politica-reembolso/"
+            className="font-sans text-xs text-muted hover:text-soft-black transition-colors uppercase tracking-widest"
+          >
+            Política de Reembolso
+          </Link>
+        </nav>
       </div>
     </footer>
   );

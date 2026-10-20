@@ -13,6 +13,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.8,
   }));
 
+  const legalUrls: MetadataRoute.Sitemap = [
+    '/privacidad/',
+    '/terminos/',
+    '/politica-cookies/',
+    '/politica-reembolso/',
+  ].map((path) => ({
+    url: `${BASE_URL}${path}`,
+    lastModified: new Date('2026-10-20'),
+    changeFrequency: 'yearly' as const,
+    priority: 0.3,
+  }));
+
   return [
     {
       url: BASE_URL,
@@ -21,5 +33,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 1,
     },
     ...productUrls,
+    ...legalUrls,
   ];
 }
