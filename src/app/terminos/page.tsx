@@ -64,9 +64,10 @@ export default function TermsPage() {
       <section>
         <h2>5. Envíos</h2>
         <p>
-          Las condiciones de envío (costo, tiempo de entrega y transportadora) se informan al
-          momento de confirmar el pedido. Los tiempos de entrega son estimados y pueden variar por
-          causas ajenas a PIERA (huelgas, condiciones climáticas, etc.).
+          El envío es <strong>gratuito para entregas en Medellín, Antioquia</strong>. Para pedidos
+          fuera de este territorio, el costo de envío se informa al momento de confirmar el pedido
+          vía WhatsApp. Los tiempos de entrega son estimados y pueden variar por causas ajenas a
+          PIERA (huelgas, condiciones climáticas, etc.).
         </p>
       </section>
 

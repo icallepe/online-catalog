@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link';
 
 export function Footer() {
@@ -44,6 +46,17 @@ export function Footer() {
           >
             Política de Reembolso
           </Link>
+          <button
+            onClick={() => {
+              try {
+                localStorage.removeItem('cookie_consent');
+              } catch {}
+              window.location.reload();
+            }}
+            className="font-sans text-xs text-muted hover:text-soft-black transition-colors uppercase tracking-widest"
+          >
+            Gestionar Cookies
+          </button>
         </nav>
       </div>
     </footer>

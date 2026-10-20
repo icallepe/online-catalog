@@ -117,9 +117,14 @@ export default async function ProductPage({ params }: PageProps) {
 
             {/* Precio */}
             {product.price !== undefined && (
-              <p className="font-sans text-xl font-medium text-soft-black">
-                {formatPrice(product.price)}
-              </p>
+              <div className="flex flex-col gap-1">
+                <p className="font-sans text-xl font-medium text-soft-black">
+                  {formatPrice(product.price)}
+                </p>
+                <p className="font-sans text-xs text-muted">
+                  Precio incluye IVA · Envío gratis a Medellín, Antioquia
+                </p>
+              </div>
             )}
 
             {/* Tallas */}
